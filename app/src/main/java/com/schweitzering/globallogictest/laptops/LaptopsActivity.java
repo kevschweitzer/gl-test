@@ -1,23 +1,19 @@
 package com.schweitzering.globallogictest.laptops;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 
-import com.schweitzering.domain.laptops.Laptop;
-import com.schweitzering.globallogictest.R;
-import com.schweitzering.globallogictest.BaseApplication;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
+import com.schweitzering.domain.laptops.Laptop;
+import com.schweitzering.globallogictest.BaseApplication;
+import com.schweitzering.globallogictest.R;
 
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class LaptopsActivity extends AppCompatActivity {
