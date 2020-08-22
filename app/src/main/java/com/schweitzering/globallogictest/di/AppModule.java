@@ -8,15 +8,15 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class AppModule {
+class AppModule {
 
     @Provides
-    public LaptopsViewModel provideLaptopsViewModel(GetAllLaptopsUseCase useCase) {
+    LaptopsViewModel provideLaptopsViewModel(GetAllLaptopsUseCase useCase) {
         return new LaptopsViewModel(useCase);
     }
 
     @Provides
-    public GetAllLaptopsUseCase providesGetAllLaptopsUseCase(LaptopsRepository repository) {
+    GetAllLaptopsUseCase providesGetAllLaptopsUseCase(LaptopsRepository repository) {
         return new GetAllLaptopsUseCase(repository);
     }
 }
