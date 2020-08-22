@@ -1,12 +1,16 @@
 package com.schweitzering.globallogictest.laptops;
 
-import com.schweitzering.domain.laptops.LaptopsRepository;
+import com.schweitzering.domain.laptops.GetAllLaptopsUseCase;
 
 public class LaptopsViewModel {
 
-    private LaptopsRepository laptopsRepository;
+    private GetAllLaptopsUseCase getAllLaptopsUseCase;
 
-    public LaptopsViewModel(LaptopsRepository repository){
-        laptopsRepository = repository;
+    public LaptopsViewModel(GetAllLaptopsUseCase getAllLaptopsUseCase){
+        this.getAllLaptopsUseCase = getAllLaptopsUseCase;
+    }
+
+    public void getAllLaptops() {
+        getAllLaptopsUseCase.execute();
     }
 }

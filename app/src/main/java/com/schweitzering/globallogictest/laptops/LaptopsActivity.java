@@ -18,5 +18,6 @@ public class LaptopsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ((BaseApplication) getApplicationContext()).appComponent.inject(this);
+        viewModel.getAllLaptops();
     }
 }

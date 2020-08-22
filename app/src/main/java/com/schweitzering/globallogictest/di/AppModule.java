@@ -1,5 +1,6 @@
 package com.schweitzering.globallogictest.di;
 
+import com.schweitzering.domain.laptops.GetAllLaptopsUseCase;
 import com.schweitzering.domain.laptops.LaptopsRepository;
 import com.schweitzering.globallogictest.laptops.LaptopsViewModel;
 
@@ -10,7 +11,12 @@ import dagger.Provides;
 public class AppModule {
 
     @Provides
-    public LaptopsViewModel provideLaptopsViewModel(LaptopsRepository repository) {
-        return new LaptopsViewModel(repository);
+    public LaptopsViewModel provideLaptopsViewModel(GetAllLaptopsUseCase useCase) {
+        return new LaptopsViewModel(useCase);
+    }
+
+    @Provides
+    public GetAllLaptopsUseCase providesGetAllLaptopsUseCase(LaptopsRepository repository) {
+        return new GetAllLaptopsUseCase(repository);
     }
 }
