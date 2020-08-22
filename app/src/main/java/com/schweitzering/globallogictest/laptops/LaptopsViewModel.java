@@ -1,6 +1,11 @@
 package com.schweitzering.globallogictest.laptops;
 
 import com.schweitzering.domain.laptops.GetAllLaptopsUseCase;
+import com.schweitzering.domain.laptops.Laptop;
+
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
 
 public class LaptopsViewModel {
 
@@ -10,7 +15,7 @@ public class LaptopsViewModel {
         this.getAllLaptopsUseCase = getAllLaptopsUseCase;
     }
 
-    public void getAllLaptops() {
-        getAllLaptopsUseCase.execute();
+    Observable<List<Laptop>> getAllLaptops() {
+        return getAllLaptopsUseCase.execute();
     }
 }

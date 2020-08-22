@@ -1,5 +1,9 @@
 package com.schweitzering.domain.laptops;
 
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
+
 public class GetAllLaptopsUseCase {
 
     private LaptopsRepository repository;
@@ -8,7 +12,7 @@ public class GetAllLaptopsUseCase {
         this.repository = repository;
     }
 
-    public void execute() {
-        repository.getAllLaptops();
+    public Observable<List<Laptop>> execute() {
+        return repository.getAllLaptops();
     }
 }

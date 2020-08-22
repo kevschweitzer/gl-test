@@ -1,6 +1,10 @@
 package com.schweitzering.domain.laptops;
 
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
+
 public interface LaptopsRepository {
 
-    abstract void getAllLaptops();
+     Observable<List<Laptop>> getAllLaptops();
 }
