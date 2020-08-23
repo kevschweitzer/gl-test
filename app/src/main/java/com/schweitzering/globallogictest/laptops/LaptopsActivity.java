@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.schweitzering.domain.laptops.Laptop;
 import com.schweitzering.globallogictest.BaseApplication;
@@ -34,6 +36,11 @@ public class LaptopsActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(laptops -> {
+                    RecyclerView laptopsList = findViewById(R.id.laptops_list);
+                    LaptopsAdapter adapter = new LaptopsAdapter();
+                    adapter.setList(laptops);
+                    laptopsList.setAdapter(adapter);
+                    laptopsList.setLayoutManager(new LinearLayoutManager(this));
                     for(Laptop lap: laptops) {
                         Log.i("laptops in activity", lap.getTitle());
                     }

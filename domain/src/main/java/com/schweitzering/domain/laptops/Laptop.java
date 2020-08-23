@@ -5,6 +5,7 @@ public class Laptop {
     private String title;
     private String description;
     private String imageUrl;
+    private final int SHORT_DESCRIPTION_CHARS = 150;
 
     public Laptop(String title, String description, String imageUrl) {
         this.title = title;
@@ -22,6 +23,10 @@ public class Laptop {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getShortDescription() {
+        return description.substring(0, SHORT_DESCRIPTION_CHARS);
     }
 
     public void setDescription(String description) {

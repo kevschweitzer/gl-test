@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GlobalLogicTest</string>
+
+    <string name="short_description">%1$s …</string>
 </resources>
