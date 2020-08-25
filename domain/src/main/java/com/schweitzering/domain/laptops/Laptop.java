@@ -1,6 +1,8 @@
 package com.schweitzering.domain.laptops;
 
-public class Laptop {
+import java.io.Serializable;
+
+public class Laptop implements Serializable {
 
     private String title;
     private String description;

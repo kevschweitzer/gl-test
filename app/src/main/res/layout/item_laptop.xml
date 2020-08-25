@@ -5,11 +5,16 @@
         <variable
             name="laptop"
             type="com.schweitzering.domain.laptops.Laptop" />
+
+        <variable
+            name="callback"
+            type="com.schweitzering.globallogictest.laptops.LaptopsAdapter.LaptopClickedCallback" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:onClick="@{() -> callback.onLaptopSelected(laptop)}"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView

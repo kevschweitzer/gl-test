@@ -18,7 +18,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class LaptopsActivity extends AppCompatActivity {
+public class LaptopsActivity extends AppCompatActivity implements LaptopsAdapter.LaptopClickedCallback {
 
     @Inject LaptopsViewModel viewModel;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -37,7 +37,7 @@ public class LaptopsActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(laptops -> {
                     RecyclerView laptopsList = findViewById(R.id.laptops_list);
-                    LaptopsAdapter adapter = new LaptopsAdapter();
+                    LaptopsAdapter adapter = new LaptopsAdapter(this);
                     adapter.setList(laptops);
                     laptopsList.setAdapter(adapter);
                     laptopsList.setLayoutManager(new LinearLayoutManager(this));
@@ -48,9 +48,16 @@ public class LaptopsActivity extends AppCompatActivity {
         disposables.add(disposable);
     }
 
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         disposables.clear();
+    }
+
+    @Override
+    public void onLaptopSelected(Laptop laptop) {
+        startActivity(LaptopDetailActivity.getStartIntent(this, laptop));
     }
 }

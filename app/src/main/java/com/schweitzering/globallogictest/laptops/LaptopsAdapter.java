@@ -17,7 +17,16 @@ import java.util.List;
 
 public class LaptopsAdapter extends RecyclerView.Adapter<LaptopsAdapter.LaptopViewHolder> {
 
+    public interface LaptopClickedCallback{
+        void onLaptopSelected(Laptop laptop);
+    }
+
     private List<Laptop> laptops = new ArrayList<Laptop>();
+    private LaptopClickedCallback callback;
+
+    public LaptopsAdapter(LaptopClickedCallback callback) {
+        this.callback = callback;
+    }
 
     public void setList(List<Laptop> laptops) {
         this.laptops = laptops;
@@ -52,6 +61,7 @@ public class LaptopsAdapter extends RecyclerView.Adapter<LaptopsAdapter.LaptopVi
         }
 
         void bind(Laptop laptop) {
+            itemBinding.setCallback(callback);
             itemBinding.setLaptop(laptop);
         }
     }
